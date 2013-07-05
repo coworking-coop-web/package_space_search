@@ -1,31 +1,28 @@
 <?xml version="1.0"?>
 <schema version="0.3">
-	<table name="BoilerplateSample">
+	<table name="CoworkingSpace">
 		<field name="id" type="I">
 			<key />
 			<autoincrement />
 		</field>
-		<field name="cParentID" type="I">
+		<field name="space_name" type="X2"></field>
+		<field name="prefecture" type="I">
 			<default value="0" />
 			<NOTNULL/>
 		</field>
-		<field name="cID" type="I">
+		<field name="ward" type="I">
 			<default value="0" />
 			<NOTNULL/>
 		</field>
-		<field name="date_col" type="T">
-			<NOTNULL/>
-			<DEFAULT value="0000-00-00 00:00:00"/>
-		</field>
-		<field name="text_col" type="C" size="255"></field>
-		<field name="image_col" type="I"></field>
-                
-		<field name="long_text" type="B"></field>
-		<field name="boolean_col" type="L">
+		<field name="address" type="X2"></field>
+		<field name="url" type="C" size="255"></field>
+		<field name="email" type="C" size="255"></field>
+		<field name="tel" type="C" size="255"></field>
+		<field name="coop" type="L">
 			<default value="0" />
 		</field>
-		<field name="timestamp_col" type="TS">
-			<deftimestamp />
+		<field name="visa" type="L">
+			<default value="0" />
 		</field>
 	</table>
 </schema>
