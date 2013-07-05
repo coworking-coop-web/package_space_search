@@ -5,7 +5,7 @@
 			<key />
 			<autoincrement />
 		</field>
-		<field name="space_name" type="X2"></field>
+		<field name="spaceName" type="X2"></field>
 		<field name="prefecture" type="I">
 			<default value="0" />
 			<NOTNULL/>
