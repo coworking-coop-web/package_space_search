@@ -1,2 +1,0 @@
-Boilerplate Theme
-A sample theme for the boilerplate package.
