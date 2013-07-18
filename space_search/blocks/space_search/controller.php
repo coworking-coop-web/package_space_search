@@ -29,7 +29,13 @@ class SpaceSearchBlockController extends BlockController {
 	}
 
 	public function view() {
-		$this->set('sl', $this->getSpaces($this->visa));
+		$spaceList = $this->getRequestedSearchResults();
+		$spaceList->setItemsPerPage(20);
+		$spaces = $spaceList->getPage();
+		
+		$this->set('spaceList', $spaceList);
+		$this->set('spaces', $spaces);
+		$this->set('filterByVisa',$this->visa);
 	}
 
 	public function save($args) {
@@ -37,8 +43,34 @@ class SpaceSearchBlockController extends BlockController {
 		parent::save($args);
 	}
 	
-	public function getSpaces($visa=0){
-		// search coworking space
+	public function getRequestedSearchResults() {
+		Loader::model('coworking_space_list','space_search');
+		
+		$spaceList = new CoworkingSpaceList();
+		
+		$spaceList->enableStickySearchRequest();
+		
+		if ($this->post('ccm-search-spaces')) {
+			$spaceList->resetSearchRequest();
+		}
+		
+		if ($this->post('spaceName') != ''){
+			$spaceList->filterBySpaceName($this->post('spaceName'));
+		}
+		
+		if ($this->post('prefecture') != ''){
+			$spaceList->filter('prefecture',$this->post('prefecture'),'=');
+		}
+		
+		if ($this->post('ward') != ''){
+			$spaceList->filter('ward',$this->post('ward'),'=');
+		}
+		
+		if ($this->post('visa') == 1 || $this->visa == 1) {
+			$spaceList->filterByVisa();
+		}
+		
+		return $spaceList;
 	}
 
 }

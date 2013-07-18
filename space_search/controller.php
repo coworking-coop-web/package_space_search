@@ -69,10 +69,11 @@ class SpaceSearchPackage extends Package {
 	}
 
 	private function installSinglePages($pkg) {
+		Loader::model('single_page');
 
 		$path = '/dashboard/coworking_space';
 		$c = Page::getByPath($path);
-		if (!is_object($c)) {
+		if (!$c || !is_object($c) || !$c->getCollectionID()) {
 			// it doesn't exist, so now we add it
 			$p = SinglePage::add($path, $pkg);
 			if (is_object($p) && $p->isError() !== false) {
@@ -82,21 +83,18 @@ class SpaceSearchPackage extends Package {
 
 		$path = '/dashboard/coworking_space/search';
 		$c = Page::getByPath($path);
-		if (!is_object($c)) {
+		if (!$c || !is_object($c) || !$c->getCollectionID()) {
 			$p = SinglePage::add($path, $pkg);
 			if (is_object($p) && $p->isError() !== false) {
 				$p->update(array('cName' => t('Search')));
 			}
 		}
+	}
 
-		$path = '/dashboard/coworking_space/edit';
-		$c = Page::getByPath($path);
-		if (!is_object($c)) {
-			$p = SinglePage::add($path, $pkg);
-			if (is_object($p) && $p->isError() !== false) {
-				$p->update(array('cName' => t('Edit')));
-			}
-		}
+	public function uninstall() {
+		parent::uninstall();
+		$db = Loader::db();
+		$db->Execute('truncate table CoworkingSpace');
 	}
 
 }

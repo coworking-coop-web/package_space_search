@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <schema version="0.3">
 	<table name="CoworkingSpace">
-		<field name="id" type="I">
+		<field name="csID" type="I">
 			<key />
 			<autoincrement />
 		</field>
