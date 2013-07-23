@@ -4,6 +4,16 @@ defined("C5_EXECUTE") or die(_("Access Denied."));
 class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 	
 	public $helpers = array('form','html');
+	
+	public function on_start() {
+		// load & set helpers
+		$th = Loader::helper('text');
+		$ph = Loader::helper('japanese_prefectures','space_search');
+		$this->set('th',$th);
+		$this->set('ph',$ph);
+		
+		$this->error = Loader::helper('validation/error');
+	}
 
 	public function delete($csID = null, $token = null){
 		Loader::model('coworking_space','space_search');
@@ -92,12 +102,6 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 	}
 
 	public function view(){
-		// load & set helpers
-		$th = Loader::helper('text');
-		$ph = Loader::helper('japanese_prefectures','space_search');
-		$this->set('th',$th);
-		$this->set('ph',$ph);
-		
 		// set search action url
 		$url = Loader::helper('concrete/urls');
 		$urlSearchAction = $url->getToolsURL('coworking_space/search_results', 'space_search');
@@ -133,6 +137,10 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		
 		if ($this->get('ward') != ''){
 			$spaceList->filter('ward',$this->get('ward'),'=');
+		}
+		
+		if ($this->get('coop') == 1) {
+			$spaceList->filterByCoop();
 		}
 		
 		if ($this->get('visa') == 1) {

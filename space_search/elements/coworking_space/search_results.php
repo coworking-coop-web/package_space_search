@@ -7,7 +7,7 @@
 				<th><?php echo t('Space Name')?></th>
 				<th><?php echo t('Prefecture')?></th>
 				<th><?php echo t('Coop Member?')?></th>
-				<th><?php echo t('Visa Memner?')?></th>
+				<th><?php echo t('Visa Member?')?></th>
 			</tr>
 			<?php
 			foreach($spaces as $space) {
@@ -28,7 +28,7 @@
 			?>
 		</table>
 	<?php } else { ?>
-		<div id="ccm-list-none"><?php echo t('No Custom Objects Found.') ?></div>
+		<div id="ccm-list-none"><?php echo t('No Spaces Found.') ?></div>
 	<?php } ?>
 	</div>
 	<div class="ccm-pane-footer">

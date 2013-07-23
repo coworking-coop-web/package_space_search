@@ -4,6 +4,8 @@
 		<?php	echo $form->text('spaceName', $_REQUEST['spaceName'], array('placeholder' => t('Space Name'), 'class' => 'input-medium')); ?>
 		<?php	echo $form->select('prefecture', $ph->getPrefecturesList(), $_REQUEST['prefecture'], array('class' => 'input-medium')); ?>
 		<?php	echo $form->select('ward', $ph->getWardsList(), $_REQUEST['ward'], array('class' => 'input-medium')); ?>
+		<?php	echo $form->label('coop', t('Coop Member?'))?>
+		<?php	echo $form->checkbox('coop', 1, $_REQUEST['coop']); ?>
 		<?php	echo $form->label('visa', t('Visa Member?'))?>
 		<?php	echo $form->checkbox('visa', 1, $_REQUEST['visa']); ?>
 		<?php	echo $form->submit('ccm-coworking-space-search-fields-submit', t('Search')); ?>

@@ -6,6 +6,7 @@ class CoworkingSpaceList extends DatabaseItemList {
 	protected $autoSortColumns = array('spaceName');
 	
 	protected $onlyVisaSpaces=0;
+	protected $onlyCoopMember=0;
 	
 	protected function setBaseQuery() {
 		$this->setQuery('select csID from CoworkingSpace');
@@ -42,6 +43,11 @@ class CoworkingSpaceList extends DatabaseItemList {
 	public function filterByVisa() {
 		$this->onlyVisaSpaces = 1;
 		$this->filter('visa', 1);
+	}
+	
+	public function filterByCoop() {
+		$this->onlyCoopMember = 1;
+		$this->filter('coop', 1);
 	}
 	
 }
