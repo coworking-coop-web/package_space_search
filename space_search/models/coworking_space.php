@@ -1,4 +1,9 @@
 <?php
+defined('C5_EXECUTE') or die("Access Denied.");
+/**
+ * @package SpaceSearch
+ *
+ */
 class CoworkingSpace extends Object {
 	
 	public function delete() {
