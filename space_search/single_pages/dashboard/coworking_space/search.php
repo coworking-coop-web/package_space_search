@@ -1,7 +1,5 @@
 <?php
 defined("C5_EXECUTE") or die(_("Access Denied."));
-$th = Loader::helper('text');
-$ph = Loader::helper('japanese_prefectures','space_search');
 
 /**
  * Add Form
@@ -194,51 +192,23 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Cowo
 echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Coworking Spaces'), false, false, false); ?>
 
 <div class="ccm-pane-options">
-	<form method="post" action="<?php	echo $this->action('view')?>" method="post" class="form-inline">
-		<fieldset>
-			<?php	echo $form->text('spaceName', $_REQUEST['spaceName'], array('placeholder' => t('Space Name'), 'class' => 'input-medium')); ?>
-			<?php	echo $form->select('prefecture', $ph->getPrefecturesList(), $_REQUEST['prefecture'], array('class' => 'input-medium')); ?>
-			<?php	echo $form->select('ward', $ph->getWardsList(), $_REQUEST['ward'], array('class' => 'input-medium')); ?>
-			<?php	echo $form->label('visa', t('Visa Member?'))?>
-			<?php	echo $form->checkbox('visa', 1, $_REQUEST['visa']); ?>
-			<?php	echo $form->submit('ccm-search-spaces', t('Search')); ?>
-			<a href="<?php	echo View::url('/dashboard/coworking_space/search', 'add')?>" class="btn primary ccm-button-right"><?php	echo t("Add Space")?></a>
-		</fieldset>
-	</form>
+	<?php
+	Loader::packageElement('coworking_space/search_form', 'space_search', array(
+	'form' => $form,
+	'ph' => $ph,
+	'urlSearchAction' => $urlSearchAction));
+	?>
 </div>
 
-<div class="ccm-page-list">
-	<div class="ccm-pane-body">
-		<table border="0" cellspacing="0" cellpadding="0" class="ccm-results-list">
-			<tr class="ccm-results-list-header">
-				<th><?php echo t('Space Name')?></th>
-				<th><?php echo t('Prefecture')?></th>
-				<th><?php echo t('Coop Member?')?></th>
-				<th><?php echo t('Visa Memner?')?></th>
-			</tr>
-			<?php
-			foreach($spaces as $space) {
-				if (!isset($striped) || $striped == 'ccm-list-record-alt') {
-					$striped = '';
-				} else if ($striped == '') { 
-					$striped = 'ccm-list-record-alt';
-				}
-				?>
-				<tr class="ccm-list-record <?php	echo $striped?>">
-					<td><a href="<?php	echo View::url('/dashboard/coworking_space/search', 'view_detail', $space->csID)?>"><?php echo $th->entities($space->spaceName); ?></a></td>
-					<td><?php echo $ph->getPrefectureName($space->prefecture); ?></td>
-					<td><?php echo ($space->coop) ? t('Yes') : t('No'); ?></td>
-					<td><?php echo ($space->visa) ? t('Yes') : t('No'); ?></td>
-				</tr>
-				<?php
-			}
-			?>
-		</table>
-	</div>
-	<div class="ccm-pane-footer">
-		<?php if(is_object($spaceList)) $spaceList->displayPagingV2(); ?>
-	</div>
-</div>
+<?php
+Loader::packageElement(
+	'coworking_space/search_results', 'space_search', array(
+	'th' => $th,
+	'ph' => $ph,
+	'urlSearchAction' => $urlSearchAction,
+	'spaces' => $spaces,
+	'spaceList' => $spaceList));
+?>
 		
 <?php
 }

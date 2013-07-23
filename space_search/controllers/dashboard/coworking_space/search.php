@@ -3,7 +3,7 @@ defined("C5_EXECUTE") or die(_("Access Denied."));
 
 class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 	
-	public $helpers = array('form');
+	public $helpers = array('form','html');
 
 	public function delete($csID = null, $token = null){
 		Loader::model('coworking_space','space_search');
@@ -92,12 +92,30 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 	}
 
 	public function view(){
-		$spaceList = $this->getRequestedSearchResults();
-		$spaceList->setItemsPerPage(20);
-		$spaces = $spaceList->getPage();
+		// load & set helpers
+		$th = Loader::helper('text');
+		$ph = Loader::helper('japanese_prefectures','space_search');
+		$this->set('th',$th);
+		$this->set('ph',$ph);
 		
-		$this->set('spaceList', $spaceList);
-		$this->set('spaces', $spaces);
+		// set search action url
+		$url = Loader::helper('concrete/urls');
+		$urlSearchAction = $url->getToolsURL('coworking_space/search_results', 'space_search');
+		$this->set('urlSearchAction',$urlSearchAction);
+		
+		// get search results
+		$spaceList = $this->getRequestedSearchResults();
+		if (is_object($spaceList)) {
+			// setup advanced search
+			$this->addHeaderItem('<script type="text/javascript">$(function() { ccm_setupAdvancedSearch(\'coworking-space\'); });</script>');
+			
+			// get items
+			$spaceList->setItemsPerPage(20);
+			$spaces = $spaceList->getPage();
+			
+			$this->set('spaceList', $spaceList);
+			$this->set('spaces', $spaces);
+		}
 	}
 	
 	public function getRequestedSearchResults() {
@@ -105,25 +123,19 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		
 		$spaceList = new CoworkingSpaceList();
 		
-		$spaceList->enableStickySearchRequest();
-		
-		if ($this->post('ccm-search-spaces')) {
-			$spaceList->resetSearchRequest();
+		if ($this->get('spaceName') != ''){
+			$spaceList->filterBySpaceName($this->get('spaceName'));
 		}
 		
-		if ($this->post('spaceName') != ''){
-			$spaceList->filterBySpaceName($this->post('spaceName'));
+		if ($this->get('prefecture') != ''){
+			$spaceList->filter('prefecture',$this->get('prefecture'),'=');
 		}
 		
-		if ($this->post('prefecture') != ''){
-			$spaceList->filter('prefecture',$this->post('prefecture'),'=');
+		if ($this->get('ward') != ''){
+			$spaceList->filter('ward',$this->get('ward'),'=');
 		}
 		
-		if ($this->post('ward') != ''){
-			$spaceList->filter('ward',$this->post('ward'),'=');
-		}
-		
-		if ($this->post('visa') == 1) {
+		if ($this->get('visa') == 1) {
 			$spaceList->filterByVisa();
 		}
 		
