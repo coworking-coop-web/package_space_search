@@ -115,6 +115,7 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 			
 			// get items
 			$spaceList->setItemsPerPage(20);
+			$spaceList->sortBy('spaceName','asc');
 			$spaces = $spaceList->getPage();
 			
 			$this->set('spaceList', $spaceList);
