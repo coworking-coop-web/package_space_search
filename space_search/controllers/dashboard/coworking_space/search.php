@@ -14,7 +14,10 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		
 		$this->error = Loader::helper('validation/error');
 	}
-
+	
+	/**
+	 * delete coworking space data
+	 */
 	public function delete($csID = null, $token = null){
 		Loader::model('coworking_space','space_search');
 		
@@ -39,6 +42,9 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		$this->view();
 	}
 	
+	/**
+	 * update coworking space data
+	 */
 	public function save() {
 		Loader::model('coworking_space','space_search');
 		
@@ -61,6 +67,9 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		}		
 	}
 	
+	/**
+	 * add new coworking space data
+	 */
 	public function submit_add() {
 		Loader::model('coworking_space','space_search');
 		
@@ -82,15 +91,24 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		}		
 	}
 	
+	/**
+	 * completed delete task
+	 */
 	public function deleted() {
 		$this->set("message", t('Coworking Space deleted successfully.'));
 		$this->view();
 	}
 	
+	/**
+	 * show add coworking space form
+	 */
 	public function add() {
 		$this->view();
 	}
 	
+	/**
+	 * show edit coworking space form
+	 */
 	public function edit($csID = false) {
 		Loader::model('coworking_space','space_search');
 		
@@ -101,6 +119,9 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		$this->view();
 	}
 
+	/**
+	 * show coworking spaces list
+	 */
 	public function view(){
 		// set search action url
 		$url = Loader::helper('concrete/urls');
@@ -151,6 +172,9 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		return $spaceList;
 	}
 	
+	/**
+	 * show coworking space detail
+	 */
 	public function view_detail($csID = false, $message = false) {
 		Loader::model('coworking_space','space_search');
 		

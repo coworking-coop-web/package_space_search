@@ -76,7 +76,7 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Add 
 <?php
 
 /**
- * Edit
+ * Edit Form
  */
 } elseif ($this->controller->getTask() == 'edit' || $this->controller->getTask() == 'save') {
 echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Edit Space'), false, 'span10 offset1', false); ?>
@@ -151,7 +151,7 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Edit
 <?php
 
 /**
- * Detail
+ * Coworking Space Detail
  */
 } elseif ($this->controller->getTask() == 'view_detail') {
 echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Coworking Space Detail'), false, 'span10 offset1', false); ?>
@@ -198,7 +198,7 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Cowo
 <?php
 
 /**
- * List
+ * Coworking Space List
  */
 } else {
 echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Coworking Spaces'), false, false, false); ?>
