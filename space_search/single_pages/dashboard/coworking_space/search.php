@@ -181,6 +181,18 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Cowo
 <div class="ccm-pane-footer">
 	<a href="<?php	echo $this->url('/dashboard/coworking_space/search')?>" class="btn"><?php	echo t("Return")?></a>
 	<a href="<?php	echo $this->url('/dashboard/coworking_space/search', 'edit', $cs->csID)?>" class="btn ccm-button-right btn-primary"><?php	echo t("Edit")?></a>
+	<?php $valt = Loader::helper('validation/token');?>
+	<script type="text/javascript">
+		deleteSpace = function() {
+			if (confirm('<?php echo t('Are you sure you want to delete?')?>')) { 
+				location.href = "<?php	echo  $this->url('/dashboard/coworking_space/search/', 'delete', intval($cs->csID), $valt->generate('delete')) ?>";				
+			}
+		}
+	</script>
+	<?php
+		$ih = Loader::helper('concrete/interface');
+		echo $ih->button_js(t('Delete'), 'deleteSpace()','right','error');
+	?>
 </div>
 
 <?php
