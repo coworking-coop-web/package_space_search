@@ -1,0 +1,200 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Coworking Space Package 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-24 06:50+0900\n"
+"PO-Revision-Date: 2013-07-24 06:55+0900\n"
+"Last-Translator: Takuro Hishikawa <hishikawa@concrete5.co.jp>\n"
+"Language-Team: \n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;t\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: ../../..\n"
+
+# Don't change this, please use same words with concrete5 core translation. see www.transifex.com/projects/p/concrete5/
+#: ../../../controller.php:3 ../../../blocks/space_search/search_form.php:2
+#: ../../../controllers/dashboard/coworking_space/controller.php:3
+#: ../../../controllers/dashboard/coworking_space/search.php:2
+#: ../../../single_pages/dashboard/coworking_space/search.php:2
+#: ../../../single_pages/dashboard/coworking_space/view.php:3
+msgid "Access Denied."
+msgstr "アクセス拒否"
+
+#: ../../../controller.php:24
+msgid "Coworking Space Search Block and admin pages for coworking.coop site."
+msgstr ""
+"coworking.coopサイトのためのコワーキングスペース検索ブロックと管理画面ページ"
+
+#: ../../../controller.php:31
+msgid "Coworking Space Package"
+msgstr "コワーキングスペース・パッケージ"
+
+#: ../../../controller.php:80
+msgid "Coworking Space"
+msgstr "コワーキングスペース"
+
+#: ../../../controller.php:89 ../../../blocks/space_search/search_form.php:40
+#: ../../../elements/coworking_space/search_form.php:11
+msgid "Search"
+msgstr "検索"
+
+#: ../../../blocks/space_search/controller.php:24
+msgid "Space Search Block."
+msgstr "スペース検索ブロック。"
+
+#: ../../../blocks/space_search/controller.php:28
+msgid "Space Search"
+msgstr "スペース検索"
+
+#: ../../../blocks/space_search/edit.php:7
+msgid "Only Visa Spaces?"
+msgstr "Visaが使えるスペースのみ？"
+
+#: ../../../controllers/dashboard/coworking_space/search.php:28
+msgid "Invalid Coworking Space ID."
+msgstr "無効なコワーキングスペースIDです。"
+
+#: ../../../controllers/dashboard/coworking_space/search.php:58
+#: ../../../controllers/dashboard/coworking_space/search.php:83
+msgid "Please include a name."
+msgstr "名前を入力してください。"
+
+#: ../../../controllers/dashboard/coworking_space/search.php:98
+msgid "Coworking Space deleted successfully."
+msgstr "コワーキングスペースの削除が完了しました。"
+
+#: ../../../controllers/dashboard/coworking_space/search.php:187
+msgid "Coworking Space updated successfully."
+msgstr "コワーキングスペースの更新が完了しました。"
+
+#: ../../../controllers/dashboard/coworking_space/search.php:190
+msgid "New Coworking Space added."
+msgstr "新しいコワーキングスペースを追加しました。"
+
+#: ../../../elements/coworking_space/search_form.php:4
+#: ../../../elements/coworking_space/search_results.php:7
+#: ../../../single_pages/dashboard/coworking_space/search.php:15
+#: ../../../single_pages/dashboard/coworking_space/search.php:90
+#: ../../../single_pages/dashboard/coworking_space/search.php:161
+msgid "Space Name"
+msgstr "スペース名"
+
+#: ../../../elements/coworking_space/search_form.php:7
+#: ../../../elements/coworking_space/search_results.php:9
+#: ../../../single_pages/dashboard/coworking_space/search.php:57
+#: ../../../single_pages/dashboard/coworking_space/search.php:132
+#: ../../../single_pages/dashboard/coworking_space/search.php:175
+msgid "Coop Member?"
+msgstr "組合員？"
+
+#: ../../../elements/coworking_space/search_form.php:9
+#: ../../../elements/coworking_space/search_results.php:10
+#: ../../../single_pages/dashboard/coworking_space/search.php:63
+#: ../../../single_pages/dashboard/coworking_space/search.php:138
+#: ../../../single_pages/dashboard/coworking_space/search.php:177
+msgid "Visa Member?"
+msgstr "Visaが使える？"
+
+#: ../../../elements/coworking_space/search_form.php:12
+#: ../../../single_pages/dashboard/coworking_space/search.php:8
+msgid "Add Space"
+msgstr "新規スペース"
+
+#: ../../../elements/coworking_space/search_results.php:8
+#: ../../../single_pages/dashboard/coworking_space/search.php:21
+#: ../../../single_pages/dashboard/coworking_space/search.php:96
+#: ../../../single_pages/dashboard/coworking_space/search.php:163
+msgid "Prefecture"
+msgstr "都道府県"
+
+#: ../../../elements/coworking_space/search_results.php:23
+#: ../../../elements/coworking_space/search_results.php:24
+#: ../../../single_pages/dashboard/coworking_space/search.php:176
+#: ../../../single_pages/dashboard/coworking_space/search.php:178
+msgid "Yes"
+msgstr "はい"
+
+#: ../../../elements/coworking_space/search_results.php:23
+#: ../../../elements/coworking_space/search_results.php:24
+#: ../../../single_pages/dashboard/coworking_space/search.php:176
+#: ../../../single_pages/dashboard/coworking_space/search.php:178
+msgid "No"
+msgstr "いいえ"
+
+#: ../../../elements/coworking_space/search_results.php:31
+msgid "No Spaces Found."
+msgstr "スペースが見つかりません。"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:27
+#: ../../../single_pages/dashboard/coworking_space/search.php:102
+#: ../../../single_pages/dashboard/coworking_space/search.php:165
+msgid "Ward"
+msgstr "区"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:33
+#: ../../../single_pages/dashboard/coworking_space/search.php:108
+#: ../../../single_pages/dashboard/coworking_space/search.php:167
+msgid "Address"
+msgstr "住所"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:39
+#: ../../../single_pages/dashboard/coworking_space/search.php:114
+#: ../../../single_pages/dashboard/coworking_space/search.php:169
+msgid "URL"
+msgstr "URL"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:45
+#: ../../../single_pages/dashboard/coworking_space/search.php:120
+#: ../../../single_pages/dashboard/coworking_space/search.php:171
+msgid "E-mail"
+msgstr "Eメール"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:51
+#: ../../../single_pages/dashboard/coworking_space/search.php:126
+#: ../../../single_pages/dashboard/coworking_space/search.php:173
+msgid "TEL"
+msgstr "TEL"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:71
+#: ../../../single_pages/dashboard/coworking_space/search.php:146
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:72
+#: ../../../single_pages/dashboard/coworking_space/search.php:147
+msgid "Save"
+msgstr "保存"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:82
+msgid "Edit Space"
+msgstr "スペースを編集"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:157
+msgid "Coworking Space Detail"
+msgstr "コワーキングスペース詳細"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:182
+msgid "Return"
+msgstr "戻る"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:183
+msgid "Edit"
+msgstr "編集"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:187
+msgid "Are you sure you want to delete?"
+msgstr "本当に削除してもよろしいですか？"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:194
+msgid "Delete"
+msgstr "削除"
+
+#: ../../../single_pages/dashboard/coworking_space/search.php:204
+msgid "Coworking Spaces"
+msgstr "コワーキングスペース"
