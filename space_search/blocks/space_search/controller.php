@@ -30,7 +30,7 @@ class SpaceSearchBlockController extends BlockController {
 
 	public function view() {
 		$spaceList = $this->getRequestedSearchResults();
-		$spaceList->setItemsPerPage(20);
+		$spaceList->sortBy('spaceName','asc');
 		$spaces = $spaceList->getPage();
 		
 		$this->set('spaceList', $spaceList);
@@ -48,25 +48,23 @@ class SpaceSearchBlockController extends BlockController {
 		
 		$spaceList = new CoworkingSpaceList();
 		
-		$spaceList->enableStickySearchRequest();
-		
-		if ($this->post('ccm-search-spaces')) {
-			$spaceList->resetSearchRequest();
+		if ($this->get('spaceName') != ''){
+			$spaceList->filterBySpaceName($this->get('spaceName'));
 		}
 		
-		if ($this->post('spaceName') != ''){
-			$spaceList->filterBySpaceName($this->post('spaceName'));
+		if ($this->get('prefecture') != ''){
+			$spaceList->filter('prefecture',$this->get('prefecture'),'=');
 		}
 		
-		if ($this->post('prefecture') != ''){
-			$spaceList->filter('prefecture',$this->post('prefecture'),'=');
+		if ($this->get('ward') != ''){
+			$spaceList->filter('ward',$this->get('ward'),'=');
 		}
 		
-		if ($this->post('ward') != ''){
-			$spaceList->filter('ward',$this->post('ward'),'=');
+		if ($this->get('coop') == 1) {
+			$spaceList->filterByCoop();
 		}
 		
-		if ($this->post('visa') == 1 || $this->visa == 1) {
+		if ($this->get('visa') == 1) {
 			$spaceList->filterByVisa();
 		}
 		
