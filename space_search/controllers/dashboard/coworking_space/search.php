@@ -57,7 +57,7 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 			$cs->save($this->post());
 			$this->redirect('/dashboard/coworking_space/search', 'view_detail', $this->post('csID'), 'updated');
 		} else {
-			$this->view_detail($this->post('csID'));
+			$this->edit($this->post('csID'));
 		}		
 	}
 	
@@ -78,7 +78,7 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 			$csID = CoworkingSpace::add($this->post());
 			$this->redirect('/dashboard/coworking_space/search', 'view_detail', $csID, 'added');
 		} else {
-			$this->view_detail($this->post('csID'));
+			$this->edit();
 		}		
 	}
 	

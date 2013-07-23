@@ -4,7 +4,7 @@ defined("C5_EXECUTE") or die(_("Access Denied."));
 /**
  * Add Form
  */
-if ($this->controller->getTask() == 'add') {
+if ($this->controller->getTask() == 'add' || $this->controller->getTask() == 'submit_add') {
 echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Add Space'), false, 'span10 offset1', false); ?>
 
 <form method="post"  action="<?php	echo $this->action('submit_add')?>" method="post" class="form-horizontal">
@@ -78,7 +78,7 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Add 
 /**
  * Edit
  */
-} elseif ($this->controller->getTask() == 'edit') {
+} elseif ($this->controller->getTask() == 'edit' || $this->controller->getTask() == 'save') {
 echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Edit Space'), false, 'span10 offset1', false); ?>
 
 <form method="post"  action="<?php	echo $this->action('save')?>" method="post" class="form-horizontal">
