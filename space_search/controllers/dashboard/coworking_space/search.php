@@ -60,8 +60,18 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		
 		if (!$this->error->has()) {
 			$cs = CoworkingSpace::getByID($this->post('csID'));
-			$cs->save($this->post());
-			$this->redirect('/dashboard/coworking_space/search', 'view_detail', $this->post('csID'), 'updated');
+			if (is_object($cs)) {
+				$res = $cs->save($this->post());
+				if ($res) {
+					$this->redirect('/dashboard/coworking_space/search', 'view_detail', $this->post('csID'), 'updated');
+				} else {
+					$db = Loader::db();
+					$this->error->add($db->ErrorMsg());
+					$this->set('error',$this->error);
+				}
+			} else {
+				$this->redirect('/dashboard/coworking_space/search');
+			}
 		} else {
 			$this->edit($this->post('csID'));
 		}		
@@ -84,8 +94,9 @@ class DashboardCoworkingSpaceSearchController extends DashboardBaseController {
 		}
 		
 		if (!$this->error->has()) {
-			$csID = CoworkingSpace::add($this->post());
-			$this->redirect('/dashboard/coworking_space/search', 'view_detail', $csID, 'added');
+			$cs = CoworkingSpace::add($this->post());
+			if (is_object($cs))
+				$this->redirect('/dashboard/coworking_space/search', 'view_detail', $cs->csID, 'added');
 		} else {
 			$this->edit();
 		}		

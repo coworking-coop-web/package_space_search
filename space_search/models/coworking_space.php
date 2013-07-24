@@ -25,9 +25,15 @@ class CoworkingSpace extends Object {
 			$data['visa'],
 			$this->csID
 		);
-		$db->query("update CoworkingSpace set spaceName = ?, prefecture = ?, ward = ?, address = ?, url = ?, email = ?, tel = ?, coop = ?, visa = ? where csID = ?", $vals);
+		$res = $db->query("update CoworkingSpace set spaceName = ?, prefecture = ?, ward = ?, address = ?, url = ?, email = ?, tel = ?, coop = ?, visa = ? where csID = ?", $vals);
+		
+		return $res;
 	}
 	
+	/**
+	 * @param array $data
+	 * @return CoworkingSpace
+	 */
 	public function add($data) {
 		$db = Loader::db();
 		$vals = array(
@@ -43,9 +49,16 @@ class CoworkingSpace extends Object {
 		);
 		$db->query("insert into CoworkingSpace (spaceName, prefecture, ward, address, url, email, tel, coop, visa) values (?,?,?,?,?,?,?,?,?)", $vals);
 		$csID = $db->Insert_ID();
-		return $csID;
+		
+		// return the new coworking space data
+		return self::getByID($csID);
 	}
 	
+	/**
+	 * returns the CoworkingSpace object by csID
+	 * @param int $csID
+	 * @return CoworkingSpace
+	 */
 	public static function getByID($csID) {
 		$db = Loader::db();
 		$r = $db->GetRow('select * from CoworkingSpace where csID = ?', array($csID));
