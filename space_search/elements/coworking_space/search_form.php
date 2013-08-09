@@ -1,5 +1,5 @@
 <?php  defined('C5_EXECUTE') or die("Access Denied."); ?>
-<form method="get" id="ccm-coworking-space-advanced-search" action="<?php echo $urlSearchAction;?>" method="post" class="form-inline">
+<form method="get" id="ccm-coworking-space-advanced-search" action="<?php echo $urlSearchAction;?>" class="form-inline">
 	<fieldset>
 		<?php	echo $form->text('spaceName', $_REQUEST['spaceName'], array('placeholder' => t('Space Name'), 'class' => 'input-medium')); ?>
 		<?php	echo $form->select('prefecture', $ph->getPrefecturesList(), $_REQUEST['prefecture'], array('class' => 'input-medium')); ?>
