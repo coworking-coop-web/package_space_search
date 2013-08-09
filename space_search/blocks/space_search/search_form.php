@@ -5,7 +5,7 @@ $ph = Loader::helper('japanese_prefectures','space_search');
 $c = Page::getCurrentPage();
 $actionURL = $c->getCollectionPath();
 ?>
-<form method="get" action="<?php	echo $this->url($actionURL)?>" method="post">
+<form method="get" action="<?php	echo $this->url($actionURL)?>#results" method="post">
 	<table class="formBlockSurveyTable">
 		<tbody>
 			<tr>
