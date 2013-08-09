@@ -4,15 +4,18 @@ $th = Loader::helper('text');
 
 $icon_coop_src = Loader::helper('concrete/urls')->getBlockTypeAssetsURL(BlockType::getByID($this->getBlockObject()->getBlockTypeID()), 'images/icon_coop.png');
 $icon_visa_src = Loader::helper('concrete/urls')->getBlockTypeAssetsURL(BlockType::getByID($this->getBlockObject()->getBlockTypeID()), 'images/icon_visa.png');
+
+var_dump($visaOnly);
 ?>
-<h1 class="pagetitle"><?php if ($filterByVisa != 1){ ?>コワーキングスペース検索<?php } else { ?>visa.jp検索<?php } ?><small></small></h1>
+<h1 class="pagetitle"><?php if ($visaOnly != 1){ ?>コワーキングスペース検索<?php } else { ?>visa.jp検索<?php } ?><small></small></h1>
 
 <section class="mod_pagecontents_sec marginBS ex_clearfix">
-<h1 class="sectitle"><?php if ($filterByVisa != 1){ ?>コワーキングスペースを検索<?php } else { ?>コワーキングvisa.jpが利用できるスペースを探そう<?php } ?></h1>
+<h1 class="sectitle"><?php if ($visaOnly != 1){ ?>コワーキングスペースを検索<?php } else { ?>コワーキングvisa.jpが利用できるスペースを探そう<?php } ?></h1>
 <!--mod_pagecontents_sec_end--></section>
 <?php
 $this->inc('search_form.php');
 
+//var_dump($spaceList);
 if($spaces){
 ?>
 <section class="mod_pagecontents_sec ex_clearfix">

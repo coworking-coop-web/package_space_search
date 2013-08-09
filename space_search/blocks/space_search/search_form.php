@@ -26,7 +26,7 @@ $actionURL = $c->getCollectionPath();
 					<?php	echo $form->text('spaceName', $_REQUEST['spaceName']); ?>
 				</td>
 			</tr>
-			<?php if ($filterByVisa != 1){ ?>
+			<?php if ($visaOnly != 1){ ?>
 			<tr>
 				<td class="question">コワーキングvisa.jp</td>
 				<td>

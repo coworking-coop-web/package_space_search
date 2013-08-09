@@ -1,5 +1,4 @@
 <?php
-
 defined('C5_EXECUTE') or die("Access Denied.");
 
 class SpaceSearchBlockController extends BlockController {
@@ -35,11 +34,11 @@ class SpaceSearchBlockController extends BlockController {
 		
 		$this->set('spaceList', $spaceList);
 		$this->set('spaces', $spaces);
-		$this->set('filterByVisa',$this->visa);
+		$this->set('visaOnly',$this->visaOnly);
 	}
 
 	public function save($args) {
-		$args['visa'] = (intval($args['visa']) > 0) ? 1 : 0;
+		$args['visaOnly'] = (intval($args['visaOnly']) > 0) ? 1 : 0;
 		parent::save($args);
 	}
 	
@@ -64,7 +63,7 @@ class SpaceSearchBlockController extends BlockController {
 			$spaceList->filterByCoop();
 		}
 		
-		if ($this->get('visa') == 1) {
+		if ($this->get('visa') == 1 || $this->visaOnly == 1) {
 			$spaceList->filterByVisa();
 		}
 		

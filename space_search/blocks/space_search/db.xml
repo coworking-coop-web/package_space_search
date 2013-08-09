@@ -5,7 +5,7 @@
 		   <key />
 		   <unsigned />
 		</field>
-		<field name="visa" type="L">
+		<field name="visaOnly" type="L">
 			<default value="0" />
 		</field>
 	</table>
