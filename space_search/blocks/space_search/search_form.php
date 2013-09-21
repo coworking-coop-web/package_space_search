@@ -28,9 +28,9 @@ $actionURL = $c->getCollectionPath();
 			</tr>
 			<?php if ($visaOnly != 1){ ?>
 			<tr>
-				<td class="question">コワーキングvisa.jp</td>
+				<td class="question">コワーキングビザjp</td>
 				<td>
-					<div class="checkboxList"><?php	echo $form->checkbox('visa', 1, $_REQUEST['visa']); ?> コワーキングvisa.jpが利用できるスペース</div>
+					<div class="checkboxList"><?php	echo $form->checkbox('visa', 1, $_REQUEST['visa']); ?> コワーキングビザjpが利用できるスペース</div>
 				</td>
 			</tr>
 			<?php } ?>
