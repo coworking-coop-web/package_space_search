@@ -7,7 +7,7 @@ class SpaceSearchBlockController extends BlockController {
 	protected $btInterfaceWidth = "300";
 	protected $btInterfaceHeight = "300";
 	protected $btCacheBlockRecord = true;
-	protected $btCacheBlockOutput = true;
+	protected $btCacheBlockOutput = false;
 	// this is super dangerous. I don't know why it even exists
 	// if you have this set, and are doing something like outputting
 	// an 'edit mode' message, that's what will be cached and displayed
