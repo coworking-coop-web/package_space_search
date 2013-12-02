@@ -21,11 +21,12 @@ class CoworkingSpace extends Object {
 			$data['url'],
 			$data['email'],
 			$data['tel'],
+			$data['facebook'],
 			$data['coop'],
 			$data['visa'],
 			$this->csID
 		);
-		$res = $db->query("update CoworkingSpace set spaceName = ?, prefecture = ?, ward = ?, address = ?, url = ?, email = ?, tel = ?, coop = ?, visa = ? where csID = ?", $vals);
+		$res = $db->query("update CoworkingSpace set spaceName = ?, prefecture = ?, ward = ?, address = ?, url = ?, email = ?, tel = ?, facebook = ?, coop = ?, visa = ? where csID = ?", $vals);
 		
 		return $res;
 	}
@@ -44,10 +45,11 @@ class CoworkingSpace extends Object {
 			$data['url'],
 			$data['email'],
 			$data['tel'],
+			$data['facebook'],
 			$data['coop'],
 			$data['visa']
 		);
-		$db->query("insert into CoworkingSpace (spaceName, prefecture, ward, address, url, email, tel, coop, visa) values (?,?,?,?,?,?,?,?,?)", $vals);
+		$db->query("insert into CoworkingSpace (spaceName, prefecture, ward, address, url, email, tel, facebook, coop, visa) values (?,?,?,?,?,?,?,?,?,?)", $vals);
 		$csID = $db->Insert_ID();
 		
 		// return the new coworking space data

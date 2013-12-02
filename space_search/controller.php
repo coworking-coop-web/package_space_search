@@ -17,7 +17,7 @@ class SpaceSearchPackage extends Package {
 	protected $appVersionRequired = '5.6.1.2';
 	// by incrementing this when you add new functionality, deployment becomes
 	// much much easier
-	protected $pkgVersion = '0.0.3';
+	protected $pkgVersion = '0.0.5';
 
 	// this will show on the installation screen in the dashboard
 	public function getPackageDescription() {
@@ -56,7 +56,7 @@ class SpaceSearchPackage extends Package {
 //		$path = $est->getAttributeTypeFilePath(FILENAME_ATTRIBUTE_DB);
 //		Package::installDB($path);
 
-		//parent::upgrade();
+		parent::upgrade();
 		//$pkg = Package::getByHandle($this->pkgHandle);
 		//$this->installAdditionalPageAttributes($pkg);
 	}

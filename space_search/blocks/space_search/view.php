@@ -35,6 +35,10 @@ if($spaces){
 		<dt>URL</dt>
 		<dd><a href="<?php echo $th->entities($space->url); ?>" target="_blank"><?php echo $th->entities($space->url); ?></a></dd>
 		<?php } ?>
+		<?php if ($space->facebook != '') { ?>
+		<dt>Facebook</dt>
+		<dd><a href="<?php echo $th->entities($space->facebook); ?>" target="_blank"><?php echo $th->entities($space->facebook); ?></a></dd>
+		<?php } ?>
 		<?php if ($space->email != '') { ?>
 		<dt>Mail</dt>
 		<dd><a href="mailto:<?php echo $th->entities($space->email); ?>"><?php echo $th->entities($space->email); ?></a></dd>

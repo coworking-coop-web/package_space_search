@@ -42,6 +42,12 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Add 
 			</div>
 		</div>
 		<div class="control-group">
+			<?php echo $form->label('facebook', t('Facebook'))?>
+			<div class="controls">
+				<?php echo $form->text('facebook', '', array('class' => 'input-xlarge')); ?>
+			</div>
+		</div>
+		<div class="control-group">
 			<?php echo $form->label('email', t('E-mail'))?>
 			<div class="controls">
 				<?php echo $form->text('email', '', array('class' => 'input-xlarge')); ?>
@@ -117,6 +123,12 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Edit
 			</div>
 		</div>
 		<div class="control-group">
+			<?php echo $form->label('facebook', t('Facebook'))?>
+			<div class="controls">
+				<?php echo $form->text('facebook', $cs->facebook, array('class' => 'input-xlarge')); ?>
+			</div>
+		</div>
+		<div class="control-group">
 			<?php echo $form->label('email', t('E-mail'))?>
 			<div class="controls">
 				<?php echo $form->text('email', $cs->email, array('class' => 'input-xlarge')); ?>
@@ -168,6 +180,8 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Cowo
 		<dd><?php echo $th->entities($cs->address); ?></dd>
 		<dt><?php echo t('URL'); ?></dt>
 		<dd><?php echo $th->entities($cs->url); ?></dd>
+		<dt><?php echo t('Facebook'); ?></dt>
+		<dd><?php echo $th->entities($cs->facebook); ?></dd>
 		<dt><?php echo t('E-mail'); ?></dt>
 		<dd><?php echo $th->entities($cs->email); ?></dd>
 		<dt><?php echo t('TEL'); ?></dt>
