@@ -19,7 +19,8 @@
 				?>
 				<tr class="ccm-list-record <?php	echo $striped?>">
 					<td><a href="<?php	echo View::url('/dashboard/coworking_space/search', 'view_detail', $space->csID)?>"><?php echo $th->entities($space->spaceName); ?></a></td>
-					<td><?php echo $ph->getPrefectureName($space->prefecture); ?></td>
+					<?php $selectedPref = sprintf("%02d",$space->prefecture); ?>
+					<td><?php echo $ph->getPrefectureName($selectedPref); ?></td>
 					<td><?php echo ($space->coop) ? t('Yes') : t('No'); ?></td>
 					<td><?php echo ($space->visa) ? t('Yes') : t('No'); ?></td>
 				</tr>

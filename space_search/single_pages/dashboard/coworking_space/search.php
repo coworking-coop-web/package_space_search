@@ -101,7 +101,8 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Edit
 		<div class="control-group">
 			<?php echo $form->label('prefecture', t('Prefecture'))?>
 			<div class="controls">
-				<?php echo $form->select('prefecture', $ph->getPrefecturesList(), $cs->prefecture); ?>
+				<?php $selectedPref = sprintf("%02d",$cs->prefecture); ?>
+				<?php echo $form->select('prefecture', $ph->getPrefecturesList(), $selectedPref); ?>
 			</div>
 		</div>
 		<div class="control-group">
@@ -173,7 +174,8 @@ echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Cowo
 		<dt><?php echo t('Space Name'); ?></dt>
 		<dd><?php echo $th->entities($cs->spaceName); ?></dd>
 		<dt><?php echo t('Prefecture'); ?></dt>
-		<dd><?php echo $ph->getPrefectureName($cs->prefecture); ?></dd>
+		<?php $selectedPref = sprintf("%02d",$cs->prefecture); ?>
+		<dd><?php echo $ph->getPrefectureName($selectedPref); ?></dd>
 		<dt><?php echo t('Ward'); ?></dt>
 		<dd><?php echo $ph->getWardName($cs->ward); ?></dd>
 		<dt><?php echo t('Address'); ?></dt>
